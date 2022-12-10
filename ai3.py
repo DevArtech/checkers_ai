@@ -37,8 +37,12 @@ def minimax(depth, board, captures, player_turn, friendly_piece, friendly_king, 
         return evaluate_board(board, friendly_piece, friendly_king, enemy_piece, enemy_king)
 
     if (player_turn == friendly_piece and captures) or (player_turn == enemy_piece and not captures):
-        return min([minimax(depth-1, b, captures, friendly_piece, friendly_piece, friendly_king, enemy_piece, enemy_king, new_loc)
+        value = min([minimax(depth-1, b, captures, friendly_piece, friendly_piece, friendly_king, enemy_piece, enemy_king, new_loc)
             for b in possible_moves])
+        print(value)
+        return value
     else: # it's either our turn and we don't capture, or enemy turn and they do
-        return max([minimax(depth-1, b, captures, enemy_piece, friendly_piece, friendly_king, enemy_piece, enemy_king, new_loc)
+        value = max([minimax(depth-1, b, captures, enemy_piece, friendly_piece, friendly_king, enemy_piece, enemy_king, new_loc)
             for b in possible_moves])
+        print(value)
+        return value
