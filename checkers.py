@@ -25,7 +25,7 @@ def evaluate_board(board, friendly_piece, friendly_king, enemy_piece, enemy_king
 
 def get_next_move_choice(possible_moves, captures, friendly_piece, friendly_king, enemy_piece, enemy_king, new_loc):
     board_evaluations = []
-    max_depth = 127 # If you want to be sure the last move you look at is one your opponent makes, make this number odd
+    max_depth = 31 # If you want to be sure the last move you look at is one your opponent makes, make this number odd
     for board in possible_moves:
         board_evaluations.append(minimax(max_depth, board, captures, friendly_piece, friendly_piece, friendly_king, enemy_piece, enemy_king, new_loc=new_loc))
     return np.argmax(board_evaluations)
