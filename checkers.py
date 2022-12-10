@@ -45,7 +45,7 @@ def minimax(depth, board, captures, player_turn, friendly_piece, friendly_king, 
             possible_moves.append(board.copy())
     
     if depth == 0:
-        return evaluate_board(board, friendly_piece, friendly_king, enemy_piece, enemy_king)
+        return quiesce(board, player_turn, friendly_piece, friendly_king, enemy_piece, enemy_king, alpha, beta)
 
     if maximizing_player:
         best_value = float("inf")
